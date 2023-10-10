@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.db import models
 
 # Create your models here.
@@ -41,6 +42,8 @@ class Libro(models.Model):
     )
     descripcion = models.TextField()
     fecha_publicacion = models.DateField()
+    biblioteca = models.ForeignKey(Biblioteca,on_delete=models.CASCADE)
+    autores = models.ManyToManyField(Autor)
     
 class Cliente(models.Model):
     nombre = models.CharField(max_length=100)
@@ -55,3 +58,9 @@ class DatosCliente(models.Model):
     gustos = models.TextField()
     telefono = models.IntegerField()
     cliente = models.OneToOneField(Cliente,on_delete=models.CASCADE)
+    
+
+class Prestamo(models.Model):
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    libro = models.ForeignKey(Libro,on_delete=models.CASCADE)
+    fecha_prestamo = models.DateTimeField(default=timezone.now)
