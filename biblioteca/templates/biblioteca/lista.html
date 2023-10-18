@@ -1,0 +1,20 @@
+<html>
+    <head></head>
+    <body>
+        <h1>BIBLIOTECA ONLINE</h1>
+        <h2>Listado de Clientes</h2>
+        <ul>
+            {% for biblioteca in biblioteca_mostrar%}
+                <li>Nombre:{{ biblioteca.nombre}}
+                    <br>
+                    Dirección:{{biblioteca.direccion}}
+                    <br>
+                    Fecha de Creación:{{biblioteca.fecha_Creacion}}
+                    <br>
+                    Teléfono:{{biblioteca.telefono}}
+                </li>
+                <br>
+            {% endfor%}
+        </ul>
+    </body>
+</html>

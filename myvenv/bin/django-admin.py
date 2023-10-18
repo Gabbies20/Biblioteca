@@ -1,4 +1,4 @@
-#!/home/alumnado/Escritorio/Gabriela/DesarrolloWeb_Servidor/Biblioteca/Biblioteca/myvenv/bin/python
+#!/home/gabriela/Desktop/Gabriela/DesarrolloWebServidor/Biblioteca/Biblioteca/myvenv/bin/python
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 

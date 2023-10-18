@@ -1,0 +1,24 @@
+<html>
+    <head></head>
+    <body>
+        <h1>BIBLIOTECA ONLINE</h1>
+        <h2>Listado de Clientes</h2>
+        <ul>
+            {% for cliente in cliente_mostrar%}
+                <li>Nombre:{{ cliente.nombre}}
+                    <br>
+                    Apellidos:{{cliente.apellidos}}
+                    <br>
+                    Email:{{cliente.fecha_email}}
+                    <br>
+                    Puntos:{{cliente.puntos}}
+                    <br>
+                    Teléfono:{{cliente.telefono}}
+                    <br>
+                    DNI:{{nombre.dni}}
+                </li>
+                <br>
+            {% endfor%}
+        </ul>
+    </body>
+</html>
