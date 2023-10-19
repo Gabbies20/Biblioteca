@@ -13,10 +13,17 @@
                     <li>{{autor.nombre}}</li>
                 {% endfor %}
             </ul>
-            <p>Fecha publicacion: {{libro.fecha_publicacion}}</p>
-            <h3>Idioma: {{ libro.get_idioma_display}}</h3>
+            <p>Fecha publicacion: {{libro.fecha_publicacion}}.
+                <a href="{% url 'dame_libro_fecha' libro.fecha_publicacion.year libro.fecha_publicacion.month %}">
+                    Pulsa para ver más detalles del mismo año y mes.
+                </a>
+            </p>
+            <p>Idioma: {{ libro.get_idioma_display}}.
+                <a href="{% url 'dame_libro_idioma' libro.idioma %}">
+                    Pulsa para ver libros del mismo idioma o Español...
+                </a>
+            </p>
             <p>Descripción {{ libro.descripcion }}</p>
-            <a href="{%url 'dame_libro' id_libro=libro.id %}">Pulsa para ver más detalles...</a>
         </div>
         {% endfor %}
     </body>
