@@ -52,6 +52,7 @@ class Cliente(models.Model):
     apellido = models.CharField(max_length=100)
     telefono = models.IntegerField(max_length=9,null=True,blank=True)
     dni = models.CharField(max_length=9,unique=True)
+    libros = models.ManyToManyField(Libro, through='Prestamo',related_name='prestamos_libros')
     
 class DatosCliente(models.Model):
     direccion = models.TextField()
