@@ -1,0 +1,27 @@
+{% extends "estructura/principal.html" %}
+
+{% block contenido %}
+
+{% load bootstrap5 %}
+
+<form action = "" method= "post">
+    {% load bootstrap5 %}
+    {%csrf_token%}
+    
+    <div class="">
+        {% bootstrap_field formulario.nombre %}
+    </div>
+    <div class="">
+        {% bootstrap_field formulario.descripcion %}
+    </div>
+    <div class="">
+        {% bootstrap_field formulario.idioma %}
+    </div>
+    <div class="">
+        {% bootstrap_field formulario.fecha_publicacion %}
+    </div>
+
+    <button type="submit" class="btn btn-dark">Enviar</button>
+</form>
+
+{% endblock%}

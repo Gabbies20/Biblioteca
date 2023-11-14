@@ -12,4 +12,5 @@ urlpatterns = [
     path('biblioteca/<int:id_biblioteca>/libros/<str:texto_libro>',views.dame_libros_biblioteca,name='dame_libros_biblioteca'),
     path('ultimo-cliente-libro/<int:libro>',views.dame_ultimo_cliente_libro,name='ultimo_cliente_libro'),
     re_path('^filtro[0-9]$',views.libros_no_prestados,name='libros_no_prestados'),
+    path('create',views.libro_create,name='create')
 ]

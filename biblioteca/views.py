@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Libro,Cliente,Biblioteca
 from django.db.models import Q
 from django.views.defaults import page_not_found
+from .forms import *
 
 
 # Create your views here.
@@ -54,3 +55,6 @@ def libros_no_prestados(request):
 def mi_error_404(request,exception=None):
     return render(request, 'errores/404.html',None,None,404)
 
+def libro_create(request):
+    formulario = LibroForm()
+    return render( request,'libro/create2.html',{'formulario':formulario})

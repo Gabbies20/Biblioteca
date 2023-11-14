@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'biblioteca',
     'django_seed',
+    'bootstrap5',
+    'django_bootstrap_icons',
 ]
 
 MIDDLEWARE = [
