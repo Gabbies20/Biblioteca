@@ -42,3 +42,21 @@ class LibroForm(forms.Form):
         required=True,
         help_text="Mantén pulsada la tecla control para seleccionar varios elementos"
     )
+    
+    
+class LibroModelForm(ModelForm):   
+    class Meta:
+        model = Libro
+        fields = ['nombre','descripcion','fecha_publicacion','idioma','biblioteca','autores']
+        labels = {
+            "nombre": ("Nombre del Libro"),
+        }
+        help_texts = {
+            "nombre": ("200 caracteres como máximo"),
+            "autores":("Mantén pulsada la tecla control para seleccionar varios elementos")
+        }
+        widgets = {
+            "fecha_publicacion":forms.SelectDateWidget()
+        }
+        localized_fields = ["fecha_publicacion"]
+    

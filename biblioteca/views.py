@@ -56,5 +56,5 @@ def mi_error_404(request,exception=None):
     return render(request, 'errores/404.html',None,None,404)
 
 def libro_create(request):
-    formulario = LibroForm()
-    return render( request,'libro/create2.html',{'formulario':formulario})
+    formulario = LibroModelForm()
+    return render( request,'libro/create.html',{'formulario':formulario})
