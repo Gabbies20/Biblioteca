@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Libro,Cliente,Biblioteca
 from django.db.models import Q
 from django.views.defaults import page_not_found
@@ -55,6 +55,36 @@ def libros_no_prestados(request):
 def mi_error_404(request,exception=None):
     return render(request, 'errores/404.html',None,None,404)
 
+
+
 def libro_create(request):
-    formulario = LibroModelForm()
+    
+    datosFormulario = None
+    if request.method == 'POST':
+        datosFormulario = request.POST
+    formulario = LibroModelForm(datosFormulario)
+    
+    
+    if(request.method == 'POST'):
+        #Llamamos a la función que creará el libro.
+        libro_creado = crear_libro_modelo(formulario)
+        print("prueba1:"+str(libro_creado))
+        if libro_creado :
+            print("prueba")
+            return redirect('listar_libros')
+    
     return render( request,'libro/create.html',{'formulario':formulario})
+
+
+def crear_libro_modelo(formulario):
+    libro_creado = False
+    if formulario.is_valid():
+        try:
+            print("prueba32423")
+            formulario.save()
+            print("prueba32423234234")
+            libro_creado = True
+        except Exception as error:
+            print(error)
+            pass
+    return libro_creado
